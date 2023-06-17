@@ -7,7 +7,7 @@ public class Decimal_to_Binary {
 		Scanner sc=new Scanner(System.in);
 		System.out.print("Enter Number- ");
 		int digit=sc.nextInt();
-		int r=0;//declaring remainder and quotient
+		int r=0;
 		int binary=0;
 		Stack<Integer> s=new Stack<Integer>();
 		while(digit>0) {
