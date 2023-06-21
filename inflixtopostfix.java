@@ -57,14 +57,11 @@ public class PostfixEvaluation {
 			return 1;
 		else if(c=='*'||c=='/')
 			return 2;
-//		else if(c=='^')
-//			return 3;
+
 		else 
 			return -1;
 	}
-//	static boolean isoprightAssociative(char c) {
-//		return c=='^';
-//	}
+
 	static boolean HasHigherPrecedence(char op1,char op2) {
 		return getoperatorweight(op1)>=getoperatorweight(op2);		
 	}
