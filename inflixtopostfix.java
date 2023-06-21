@@ -11,15 +11,13 @@ public class PostfixEvaluation {
 			else if(isNUM(c)) {
 				int num=0;
 				
-				while(i<exp.length() && isNUM(c)) {
-					
+				while(i<exp.length() && isNUM(exp.charAt(i))) {
+					c=exp.charAt(i);
 					num=num*10+(c-'0');
 					i++;
-					c=exp.charAt(i);
 				}
 				i--;
 				s.push(num);
-				System.out.println(s);
 			}
 			else if(isOperator(c)) {
 				int op2=s.pop();
@@ -37,13 +35,9 @@ public class PostfixEvaluation {
 					System.out.print("unexpected error");
 					result=-1;
 				}
-			
 				s.push(result);
-				System.out.println(s);
 			}
-			
 		}
-		System.out.println(s);
 		return s.get(0);
 	}
 	static boolean isNUM(char c){
@@ -57,7 +51,6 @@ public class PostfixEvaluation {
 			return 1;
 		else if(c=='*'||c=='/')
 			return 2;
-
 		else 
 			return -1;
 	}
@@ -80,19 +73,16 @@ public class PostfixEvaluation {
 					postfix+=s.pop();
 				}
 				s.push(c);
-				System.out.println(s);
 			}
 			else if(isNUM(c)) {
 				postfix+=c;
 			}
 			else if(c=='(') {
 				s.push(c);
-				System.out.println(s);
 			}
 			else if(c==')') {
 				while(!s.isEmpty() && s.peek()!='(') {
 					postfix+=s.pop();
-					System.out.println(s);
 				}
 				s.pop();
 			}
@@ -100,14 +90,12 @@ public class PostfixEvaluation {
 		}
 		while(!s.isEmpty()) {
 			postfix+=s.pop();
-			System.out.println(s);
 		}
 		return postfix;
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 			String post="9/3+(5-7*2)";
-//			String post="99 33 / 50 70 20-*+";
 			String s=infixtopostfix(post);
 			System.out.println(s);
 			System.out.println(Evaluateprefix(s));
