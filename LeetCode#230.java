@@ -16,7 +16,7 @@
 class Solution {
     public int kthSmallest(TreeNode root, int k) {
           List<Integer> re=new ArrayList();
-          iot(root,re);
+          iot(root,re);  //get binary search tree inorder i.e converted to sorted list and get smallest 
           return re.get(k-1);
     }
      public void iot(TreeNode root,List<Integer> res){
